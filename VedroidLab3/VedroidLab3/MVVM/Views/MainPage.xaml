@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mainviewmodel="clr-namespace:VedroidLab3.MVVM.ViewModels.MainViewModel"
+             xmlns:lotie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+             x:Class="VedroidLab3.MainPage">
+
+    <ContentPage.BindingContext>
+        <mainviewmodel:MainViewModel></mainviewmodel:MainViewModel>
+    </ContentPage.BindingContext>
+
+    <ScrollView Orientation="Vertical">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="8*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!-- IMAGE -->
+            <RelativeLayout Grid.Row="0"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="20">
+                <lotie:AnimationView Animation="74216-animated-flames.json"
+                                     AutoPlay="True"
+                                     Speed="{Binding SpeedAnimation, Mode=TwoWay}"
+                                     RepeatMode="Infinite"
+                                     WidthRequest="300"
+                                     HeightRequest="300">
+                </lotie:AnimationView>
+            </RelativeLayout>
+
+            <!-- SLIDER FOR ANIMATION SPEED -->
+            <StackLayout Grid.Row="1"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="CenterAndExpand">
+                <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+
+                    <Label Text="Скорость"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center">
+                    </Label>
+
+                    <Slider WidthRequest="200"
+                            Value="{Binding SpeedAnimation, Mode=TwoWay}"
+                            IsEnabled="{Binding IsAnimating}"
+                            Minimum="0.0"
+                            Maximum="3.0">
+                    </Slider>
+
+                </StackLayout>
+            </StackLayout>
+
+            <!-- BUTTON FOR ANIMATION STOP -->
+            <StackLayout Grid.Row="2"
+                         Margin="10">
+                <Button Text="{Binding ButtonText}"
+                        CornerRadius="5"
+                        Command="{Binding StartOrStopAnimationCommand}">
+                </Button>
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>
