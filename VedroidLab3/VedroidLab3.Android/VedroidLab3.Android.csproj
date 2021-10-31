@@ -63,7 +63,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\81111-loading-13.json" />
     <None Include="74216-animated-flames.json" />
     <AndroidAsset Include="Assets\74216-animated-flames.json" />
     <None Include="Resources\AboutResources.txt" />

@@ -65,7 +65,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <BundleResource Include="81111-loading-13.json" />
     <BundleResource Include="74216-animated-flames.json" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
